@@ -28,12 +28,21 @@
     <div class="container">
         <div class="search-container">
             <h3>Search for a city</h3>
-            <input type="text" placeholder="Search..">
-            <button type="submit"><i class="fa fa-search"></i></button>
+            <span id="error"></span>
+            <input id="search-input" type="text" placeholder="Search..">
+            <button id="submit-weather" type="submit"><i class="fa fa-search"></i>Submit</button>
         </div>
 
-        <div class="city-info">
 
+        <div class="city-info ">
+            <div class="weather-container">
+            <img class="icon">
+            <p class="weather"></p>
+            <p class="temp"></p>
+            <p class="humidity"></p>
+            <p class="wind-speed"></p>
+            <p class="uv-index"></p>
+            </div>
         </div>
 
     </div>

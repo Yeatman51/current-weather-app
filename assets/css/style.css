@@ -54,6 +54,14 @@ body {
     background-color: rgb(27, 88, 116);
 }
 
+.weather-container {
+    text-align: center;
+}
+
+.temp {
+    font-size: 22px;
+}
+
 .row-2 {
     display: flex;
 }
