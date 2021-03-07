@@ -8,6 +8,7 @@ function updateTime () {
 setInterval(updateTime, 1000);
 updateTime ();
 
+// Set up API and user search and put
 $(document).ready(function() {
     $('#submit-weather').click(function(){
     let city = $("#search-input").val();
@@ -20,10 +21,12 @@ $(document).ready(function() {
             dataType: "json",
             success: function(data){
                 console.log(data);
+                
                 let icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
                 let widget = show(data);
                 $(".weather-container").html(widget);
                 $("#search-input").val('');
+                console.log(icon);
             }
         
         });
@@ -37,32 +40,20 @@ $(document).ready(function() {
 });
 
 
-
+// Display search results
 function show(data){
-    return "<p> "+ data.weather[0].main +" </p>" +
+    return "<h2> "+ data.name +" </h2>" +
+        "<p> "+ data.weather[0].main +" </p>" +
         "<p> "+ data.main.temp + " °F" +" </p>" +
-        "<img "+ "http://openweathermap.org/img/w/" + data.weather[0].icon  +".png" +" >" +
+        "<img "+ "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png" +" >" +
         "<p> "+ data.main.humidity + " % Humidity" +" </p>" +
+        // "<img "+ icon +" >" +
         "<p> "+ data.wind.speed + " MPH" +" </p>";
-            // "<img> "+ icon +" </img>" +
+            
             
 }
 
-// // User input search form
-// let searchForm = document.querySelector(".search-container");
-
-// function runSearch (event) {
-//     event.preventDefault();
-//     let userInput = document.querySelector("#search-input").value;
-
-//     if (!userInput) {
-//         console.log("Error; need to enter a city to search");
-//     } else {
-//         console.log(userInput);
-//     }
-// }
-// searchForm.addEventListener("submit", runSearch);
-
+// All of this code works but I couldn't figure out how to change the user input to a different city
 
 // // Current weather API
 // $.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + userInput + "&units=imperial&appid=216b1f5803ab33c2e396a05fba3de16d") 
